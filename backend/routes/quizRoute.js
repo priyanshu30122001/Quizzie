@@ -126,6 +126,7 @@ router.put("/update/:quizId", async (req, res) => {
       return res.status(404).json({ message: "Quiz not found" });
     }
     if (!Array.isArray(questions) || questions.length === 0) {
+      console.log('Invalid or empty questions array:', questions);
       return res.status(400).json({ message: "Questions array is empty or invalid" });
     }
 
