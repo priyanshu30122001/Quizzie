@@ -29,7 +29,7 @@ const onSubmit=async(e)=>{
     localStorage.setItem("token",response.token);
     localStorage.setItem("User",response.user);
     localStorage.setItem("userId",response.userId)
-    navigate("/dashboard")
+    navigate("/")
 
   }
   else{
