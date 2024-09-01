@@ -7,7 +7,7 @@ import Analytics from './components/Analytics';
 import './App.css'
 import CreateQuiz from './components/CreateQuiz';
 import Quiz from './pages/Quiz';
-import Questionanalysis from './components/questionAnalysis';
+import Questionanalysis from './components/Questionanalysis';
 import UpdateQuiz from "./components/UpdateQuiz"
 import ProtectedRoutes from './utils/ProtectedRoutes';
 import Nopage from './pages/Nopage';
