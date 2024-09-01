@@ -60,7 +60,7 @@ const handleSubmit = async(e) => {
       const response = await signupUser({...formData});
       if(response){
         alert(response.message);
-        navigate("/")
+        navigate("/login")
       }
       
   } else {
@@ -76,7 +76,7 @@ const handleSubmit = async(e) => {
              <h1>QUIZZIE</h1>
              <div className='button-flex'>
                 <button className='signup'> Sign Up</button>
-                <button onClick={()=>navigate("/")} > Log In</button>
+                <button onClick={()=>navigate("/login")} > Log In</button>
              </div>
              <div className='input'>
                  <label>Name </label>
