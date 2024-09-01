@@ -33,12 +33,6 @@ const userSchema = new Schema({
             ref:'Quiz'
         }
     ],
-    questionId: [
-        {
-            type:Schema.Types.ObjectId,
-            ref:'Question'
-        }
-    ],
 
 })
 

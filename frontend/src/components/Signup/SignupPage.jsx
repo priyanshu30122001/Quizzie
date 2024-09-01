@@ -65,7 +65,8 @@ const handleSubmit = async(e) => {
       
   } else {
       console.log('Form submission failed due to validation errors.');
-  }
+      
+    }
 };
   return (
     <>

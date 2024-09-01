@@ -93,9 +93,6 @@ router.post("/create",async (req, res) => {
       const currentDate = date.getDate();
       const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
       const createdOn = `${currentDate} ${month[date.getMonth()]} ${date.getFullYear()}`;
-      // console.log('createdOn date:', createdOn);
-  
-     // Create the new quiz document
     const quizDoc = new Quiz({
       name,
       type,
@@ -124,7 +121,6 @@ router.put("/update/:quizId", async (req, res) => {
     const { name, type, user, questions } = req.body; 
     
     const quiz = await Quiz.findById(quizId);
-    // const user = quiz.user;
     if (!quiz) {
       return res.status(404).json({ message: "Quiz not found" });
     }

@@ -68,6 +68,8 @@ label{
     width: 25vw;
     border-radius: 10px 10px 0px 0px;
     height: 35px;
+    font-family: Poppins;
+    font-size: 16px;
 }
 
 .submit{

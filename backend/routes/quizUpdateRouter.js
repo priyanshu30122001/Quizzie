@@ -4,7 +4,7 @@ const Quiz = require("../schemas/Quiz");
 const User = require("../schemas/user");
 
 
-//fetch quiz fro Quiz Page 
+//fetch quiz for Quiz Page 
 router.get("/get/:id",async(req,res,next)=>{
     try{
       const id = req.params.id
@@ -44,6 +44,7 @@ router.patch("/update/impression/:id",async(req,res,next)=>{
         return res.status(403).send("Wrong request"); 
       }
       const updatedQuiz = await Quiz.findByIdAndUpdate(id,{ $inc: { impression: 1 } },  { new: true }  );
+      const updateUser = await User.findByIdAndUpdate(updatedQuiz.user,{ $inc: { totalImpressions: 1 } },  { new: true })
       res.status(200).json({message:"done"});
     }catch(err){
       next(err);

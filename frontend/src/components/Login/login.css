@@ -69,6 +69,8 @@ label{
     border-radius: 10px 10px 0px 0px;
     height: 38px;
     padding-left: 2vw;
+    font-family: Poppins;
+    font-size: 16apx;
 }
 .input input::placeholder{
     color: red;
