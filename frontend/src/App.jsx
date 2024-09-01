@@ -13,19 +13,17 @@ import ProtectedRoutes from './utils/ProtectedRoutes';
 import Nopage from './pages/Nopage';
 
 function App() {
-     useEffect(() => {
-    // Add event listener when the component mounts
-    const handleBeforeUnload = () => {
+  useEffect(() => {
+    // Function to remove token and user data from local storage
+    const handleUnload = () => {
       localStorage.removeItem('token');
-     localStorage.removeItem('User');
+      localStorage.removeItem('User');
       localStorage.removeItem('userId');
+      console.log('Tab closed or page unloaded');
     };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // Cleanup event listener when the component unmounts
+    window.addEventListener('unload', handleUnload);
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('unload', handleUnload);
     };
   }, []);
 
