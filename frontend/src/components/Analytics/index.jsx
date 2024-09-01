@@ -36,7 +36,7 @@ function Analytics() {
     fetchData();
   },[]);
   const handleShare =(id)=>{
-   const Link = `http://localhost:5173/Quiz/${id}`;
+   const Link = `https://quizzie-nine-lake.vercel.app/Quiz/${id}`;
    navigator.clipboard.writeText(Link)
    notify()
   }
