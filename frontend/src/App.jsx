@@ -18,11 +18,11 @@ function App() {
   return (
    <BrowserRouter>
        <Routes>
-         <Route path='/'element={<LoginPage/>} />
+         <Route path='/login'element={<LoginPage/>} />
          <Route path='/register'element={<SignupPage/>} />
          <Route path='/quiz/:id' element={<Quiz/>}  />
          <Route path='*' element={<Nopage/>}/>
-         <Route path='/dashboard' element={<ProtectedRoutes Component={DashBoard}/>}/> 
+         <Route path='/' element={<ProtectedRoutes Component={DashBoard}/>}/> 
          <Route path='/analytics' element={<ProtectedRoutes Component={Analytics}/>}/>
          <Route path='/create' element={<ProtectedRoutes Component={CreateQuiz}/>}/>
          <Route path='/questions/:id' element={<ProtectedRoutes Component={Questions}/>}/>
