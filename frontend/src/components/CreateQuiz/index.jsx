@@ -128,7 +128,7 @@ function CreateQuiz() {
      const data = await makeQuiz({...updatedQuiz});
      if(data.message === "Quiz Added"){
         setLink(true);
-        setQuizLink(`https://quizzie-nine-lake.vercel.app/${data.quizId}`)
+        setQuizLink(`https://quizzie-nine-lake.vercel.app/quiz/${data.quizId}`)
      }
    }
  }
