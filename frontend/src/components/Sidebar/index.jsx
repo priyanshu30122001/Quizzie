@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Sidebar({button}) {
     const navigate = useNavigate() 
     const logOut=()=>{
-      navigate("/");
+      navigate("/login");
       localStorage.clear();
     }
    
@@ -15,7 +15,7 @@ function Sidebar({button}) {
             <div className='menu'>
                 <button
                   style={{boxShadow:`${button === "dashboard" ? " 0px 0px 14px 0px #0000001F ":""}`}} 
-                  onClick={()=>navigate("/dashboard")}
+                  onClick={()=>navigate("/")}
                 >Dashboard</button>
                 <button
                   style={{boxShadow:`${button === "analytics" ? " 0px 0px 14px 0px #0000001F ":""}`}} 
