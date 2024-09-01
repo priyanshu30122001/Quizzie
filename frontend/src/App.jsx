@@ -13,7 +13,21 @@ import ProtectedRoutes from './utils/ProtectedRoutes';
 import Nopage from './pages/Nopage';
 
 function App() {
- 
+     useEffect(() => {
+    // Add event listener when the component mounts
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('token');
+     localStorage.removeItem('User');
+      localStorage.removeItem('userId');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Cleanup event listener when the component unmounts
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   return (
    <BrowserRouter>
