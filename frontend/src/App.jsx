@@ -13,19 +13,7 @@ import ProtectedRoutes from './utils/ProtectedRoutes';
 import Nopage from './pages/Nopage';
 
 function App() {
-  useEffect(() => {
-    // Function to remove token and user data from local storage
-    const handleUnload = () => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('User');
-      localStorage.removeItem('userId');
-      console.log('Tab closed or page unloaded');
-    };
-    window.addEventListener('unload', handleUnload);
-    return () => {
-      window.removeEventListener('unload', handleUnload);
-    };
-  }, []);
+
 
   return (
    <BrowserRouter>
