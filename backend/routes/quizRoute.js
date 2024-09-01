@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Quiz = require("../schemas/Quiz");
-
-const User = require("../schemas/user");
+const User = require("../schemas/User");
 
 
 // get details about quizes from the user Schema 
