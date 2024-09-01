@@ -20,7 +20,7 @@ function App() {
        <Routes>
          <Route path='/'element={<LoginPage/>} />
          <Route path='/register'element={<SignupPage/>} />
-         <Route path='/Quiz/:id' element={<Quiz/>}  />
+         <Route path='/quiz/:id' element={<Quiz/>}  />
          <Route path='*' element={<Nopage/>}/>
          <Route path='/dashboard' element={<ProtectedRoutes Component={DashBoard}/>}/> 
          <Route path='/analytics' element={<ProtectedRoutes Component={Analytics}/>}/>
