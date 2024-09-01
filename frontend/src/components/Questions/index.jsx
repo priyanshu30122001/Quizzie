@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {getQuizForAnalysis} from "../../apis/quiz";
 import "./index.css"
 
-function Questionanalysis() {
+function Questions() {
  const { id } = useParams();
  const[quiz,setQuiz]=useState({
   _id:"",
@@ -94,4 +94,4 @@ console.log(id);
   )
 }
 
-export default Questionanalysis;
+export default Questions;

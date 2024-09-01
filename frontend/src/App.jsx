@@ -7,7 +7,7 @@ import Analytics from './components/Analytics';
 import './App.css'
 import CreateQuiz from './components/CreateQuiz';
 import Quiz from './pages/Quiz';
-import Questionanalysis from './components/Questionanalysis';
+import Questions from './components/Questions';
 import UpdateQuiz from "./components/UpdateQuiz"
 import ProtectedRoutes from './utils/ProtectedRoutes';
 import Nopage from './pages/Nopage';
@@ -25,7 +25,7 @@ function App() {
          <Route path='/dashboard' element={<ProtectedRoutes Component={DashBoard}/>}/> 
          <Route path='/analytics' element={<ProtectedRoutes Component={Analytics}/>}/>
          <Route path='/create' element={<ProtectedRoutes Component={CreateQuiz}/>}/>
-         <Route path='/questions/:id' element={<ProtectedRoutes Component={Questionanalysis}/>}/>
+         <Route path='/questions/:id' element={<ProtectedRoutes Component={Questions}/>}/>
          <Route path='/update/:quizId' element={<ProtectedRoutes Component={UpdateQuiz}/>}/>
         
        </Routes>
