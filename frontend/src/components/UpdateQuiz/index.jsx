@@ -96,7 +96,7 @@ useEffect(()=>{
     const data = await updateQuiz({...updatedQuiz},quizId);
      if(data){
         setLink(true);
-        setQuizLink(`http://localhost:5173/Quiz/${data.quizId}`)
+        setQuizLink(`https://quizzie-nine-lake.vercel.app/Quiz/${data.quizId}`)
      }
    }
  }
