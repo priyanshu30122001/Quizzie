@@ -3,6 +3,7 @@ import {getQuiz} from "../../apis/quiz";
 import { useParams } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import "./index.css"
+import ClipLoader from "react-spinners/ClipLoader";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 import axios from "axios";
 import resultImage from '../../assets/images/result.png'
@@ -14,6 +15,7 @@ function Quiz() {
     const [correctCount,setCorrectCount]= useState(0)
     const [inCorrectCount,setInCorrectCount]= useState(0)
     const[result,setResult]= useState(false);
+    const [loading,setLoading] = useState(true)
     
     const [Quiz,setQuiz]= useState({
         _id:"",
@@ -38,6 +40,7 @@ function Quiz() {
     const fetchQuiz=async()=>{
         const data = await getQuiz(id);
         setQuiz({...data});
+        setLoading(false)
         if (data.questions.length > 0) {
             setTime(data.questions[0].timer);
         }        
@@ -133,7 +136,8 @@ function Quiz() {
                     }
               </div>
             :
-            <div className='Quiz-container'>
+            <>{!loading?
+              <div className='Quiz-container'>
               <div className='quiz-row1'>
                  <div className='question-number'>
                    {` 0${currentIndex+1}/0${Quiz.questions.length}`}
@@ -219,7 +223,7 @@ function Quiz() {
                                 return( 
                                 <>
                                     {Quiz.type ==="Q & A" ?
-                                    <div
+                                       <div
                                         key={index}
                                         className='textImage-option' 
                                         onClick={()=>{
@@ -254,7 +258,13 @@ function Quiz() {
                   :
                   <button className='next-button' onClick={()=>setIndex(currentIndex + 1)} >NEXT</button>}
               </div>
-            </div>
+              </div>
+              :
+              <div className='loading-container'>
+                <ClipLoader loading={loading} size={50}/>
+              </div>
+             }
+            </>
           }
      </div>
   )

@@ -10,6 +10,7 @@ import Quiz from './pages/Quiz';
 import Questionanalysis from './components/questionAnalysis';
 import UpdateQuiz from "./components/UpdateQuiz"
 import ProtectedRoutes from './utils/ProtectedRoutes';
+import Nopage from './pages/Nopage';
 
 function App() {
  
@@ -20,6 +21,7 @@ function App() {
          <Route path='/'element={<LoginPage/>} />
          <Route path='/register'element={<SignupPage/>} />
          <Route path='/Quiz/:id' element={<Quiz/>}  />
+         <Route path='*' element={<Nopage/>}/>
          <Route path='/dashboard' element={<ProtectedRoutes Component={DashBoard}/>}/> 
          <Route path='/analytics' element={<ProtectedRoutes Component={Analytics}/>}/>
          <Route path='/create' element={<ProtectedRoutes Component={CreateQuiz}/>}/>
