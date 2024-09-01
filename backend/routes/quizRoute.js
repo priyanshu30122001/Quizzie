@@ -52,16 +52,18 @@ router.get("/analytics/:id",async(req,res,next)=>{
 router.delete("/delete/:id",async(req,res,next)=>{
     const QuizId = req.params.id;
     try{
-        const quiz = await Quiz.findById(QuizId).select("user questions");
+        const quiz = await Quiz.findById(QuizId).select("user questions impression");
         if(!quiz){
           return res.status(403).send("Wrong request"); 
         }
         const userId = quiz.user;    
         const questions = quiz.questions.length;
+        const impressions = quiz.impression;
         await Quiz.findByIdAndDelete(QuizId);
         const user = await User.findById(userId)
         user.totalQuizes= user.quizId.length-1; 
         user.totalQuestions = user.totalQuestions-questions;
+        user.totalImpressions =user.totalImpressions-impressions; 
         const index = user.quizId.indexOf(QuizId);    
         if (index > -1) { 
           user.quizId.splice(index, 1); 

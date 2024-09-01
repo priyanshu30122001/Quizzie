@@ -9,6 +9,7 @@ import cross from "../../assets/images/charm_cross.png"
 import check from "../../assets/images/check.jpg"
 import "./index.css";
 import { useNavigate } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 function updatedQuiz() {
 const [errors, setErrors] = useState({});
@@ -16,7 +17,7 @@ const navigate=useNavigate()
 const [currentIndex,setCurrentIndex] = useState(0)
 const [quizLink,setLink]=useState(false)
 const[Link,setQuizLink] = useState("")
-const [loading]=useState(false);
+const [loading,setLoading]=useState(true);
 const {quizId} = useParams();
 const userId = localStorage.getItem("userId");
 const [Quiz,setQuiz]= useState({
@@ -50,7 +51,7 @@ const fetchQuiz=async()=>{
       timer: question.timer || 0 
     }))
   );
-
+  setLoading(false)
 }
 useEffect(()=>{
     fetchQuiz()
@@ -141,7 +142,13 @@ return (
                  <img src={cross} className='cross' onClick={()=>navigate("/analytics")}/>
            </div>
            :
-           <div className='createupdateQuestion-box'>
+           <> 
+           {loading ?
+            <div className='createupdateQuestion-box'>
+              <ClipLoader loading={loading}/>
+            </div>  
+            :
+            <div className='createupdateQuestion-box'>
                   <div className='heading'><span>{Quiz.name}</span> <span>{Quiz.type}</span></div>
                   <div className='questions-array'>
                             <div className='question_no'>
@@ -286,11 +293,13 @@ return (
                             <button className='update-quiz' onClick={handleQuizSubmit}>Update Quiz</button>
                     </div>
                   </div>
-            </div>
+           </div>
+          }
+           </>
 
         }
         </div>
-        <Analytics  setloading={loading} className="behind" />
+        <Analytics className="behind" />
     </div>
   )
 }

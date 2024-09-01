@@ -104,12 +104,16 @@ function CreateQuiz() {
   }
   };
   const notify = () => toast.success("Link copied to Clipboard",{autoClose:2000});
-  
+  const validateToast=()=>toast.error("Atleast one answer should be correct",{autoClose:2000});
   const handleQuizSubmit=async()=>{
     const validationErrors = validateQuestions();
+   
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       console.log(errors);
+      if (Object.keys(validationErrors).some(key => key.startsWith('answer'))) {
+        validateToast();
+      }
     } else {
       setErrors({});
       const updatedQuiz = {
@@ -137,15 +141,24 @@ function CreateQuiz() {
       }
   
       // Validate options
-      question.options.forEach((option, optionIndex) => {
-        if (!option.text && question.optionType === "Text") {
-          validationErrors[`option${index}${optionIndex}`] = "Option text is required";
-        }
-        if (!option.imageUrl && question.optionType !== "Text") {
-          validationErrors[`option${index}${optionIndex}`] = "Image URL is required";
-        }
-      });
+      let hasCorrectAnswer = false;
+    question.options.forEach((option, optionIndex) => {
+      if (!option.text && question.optionType === "Text") {
+        validationErrors[`option${index}${optionIndex}`] = "Option text is required";
+      }
+      if (!option.imageUrl && question.optionType !== "Text") {
+        validationErrors[`option${index}${optionIndex}`] = "Image URL is required";
+      }
+      if (option.answer) {
+        hasCorrectAnswer = true;
+      }
     });
+
+    // Check if there is at least one correct answer
+    if (Quiz.type !== "Poll Question" && !hasCorrectAnswer) {
+      validationErrors[`answer`] = "At least one option must be marked as the correct answer";
+    }
+  });
   
     return validationErrors;
   };
@@ -165,7 +178,6 @@ function CreateQuiz() {
     if (!Quiz.name) {
       validationErrors.name = "Quiz name is required";
     }
-  
     // Validate quiz type
     if (!Quiz.type) {
       validationErrors.type = "Quiz type is required";

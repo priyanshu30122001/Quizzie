@@ -29,11 +29,16 @@ body{
     font-size: 30px;
     font-weight: 600;
     width: 280px;
-    padding: 1vh 0;
+    /* height: 145px; */
+    padding: 2.5vh 0;
     border: none;
     background-color: #FFFFFF;
     border-radius: 10px;
     text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .one{
    color: #FF5D01;
@@ -53,11 +58,12 @@ body{
 .impression{
    margin-right: 0.5vw;
 }
- .box span{
+.box span{
     font-size: 60px;
+    line-height: 50px;
 }
 .align{
-    text-align: left;
+    padding-right:2.5vw ;
 }
 
 .trending h1{

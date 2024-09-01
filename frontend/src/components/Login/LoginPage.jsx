@@ -23,15 +23,7 @@ const onSubmit=async(e)=>{
     
   }
   const response = await loginUser(formData.email,formData.password);
-  if(!response){
-    setError(true);
-    alert('Login Failed')
-    setFormData({
-      email: '',
-      password: ''
-    })
-  }
-  else{
+  if(response.user){
     setError(false);
     console.log(response);
     localStorage.setItem("token",response.token);
@@ -39,6 +31,15 @@ const onSubmit=async(e)=>{
     localStorage.setItem("userId",response.userId)
     navigate("/dashboard")
 
+  }
+  else{
+    setError(true);
+    alert('Access Denied')
+    setFormData({
+      email: '',
+      password: ''
+    })
+   
   }
 }
   return (

@@ -21,12 +21,9 @@ function Analytics() {
   const [deleteId,setdeleteId]=useState("");
   const notify = () => toast.success("Link copied to Clipboard",{autoClose:2000});
   const fetchData =async()=>{
-
-     setTimeout(async() => {
-      const data = await quizForAnalytics(userId);
-      setquizes(data);
-      setloading(false)
-    }, 2000);
+    const data = await quizForAnalytics(userId);
+    setquizes(data);
+    setloading(false); 
   }
   // setInterval(fetchData,3000);
   const deleteThisQuiz =async(deleteId)=>{

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export const loginUser =async(email,password)=>{
@@ -6,11 +6,11 @@ export const loginUser =async(email,password)=>{
         const reqUrl =`${backendUrl}/auth/login`;
         const response = await axios.post(reqUrl,{email:email,password:password});
         console.log(response.data);
-        return response.data;
-         
+        return response.data
+      
     }
   catch(err){
-     console.log(err);
+     return err.response
   }
 }
 export const signupUser =async({name,email,mobile,password,})=>{

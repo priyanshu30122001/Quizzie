@@ -13,6 +13,7 @@ router.post('/login',async(req,res,next)=>{
         const user = await User.findOne({email});
         if(!user){
            return res.status(400).json({message:'access denied'});
+           
         }
         const validPassword = await bcrypt.compare(password,user.password)
         if(!validPassword){
