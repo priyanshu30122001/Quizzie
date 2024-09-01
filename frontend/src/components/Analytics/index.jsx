@@ -37,7 +37,8 @@ function Analytics() {
   },[]);
   const handleShare =(id)=>{
    const Link = `https://quizzie-nine-lake.vercel.app/${id}`;
-   navigator.clipboard.writeText(Link)
+   // navigator.clipboard.writeText(Link)
+    navigate("/${id}")
    notify()
   }
   return (
