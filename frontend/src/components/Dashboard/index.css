@@ -1,0 +1,110 @@
+body{
+    margin:0;
+    padding:0;
+   
+}
+.dashboard-main{
+    display:flex;
+    flex-direction: row;
+    padding: 0;  
+}
+.dashboard{
+    width: 100%;
+    background-color: #EDEDED;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 12vh 7vw 0 7vw ;
+    gap: 10vh;
+}
+.flex-box{
+    display: flex;
+    flex-direction:row;
+    gap: 3vw;
+    justify-content: center;
+    
+}
+.box{
+    font-family: poppins;
+    font-size: 30px;
+    font-weight: 600;
+    width: 280px;
+    padding: 1vh 0;
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    text-align: center; 
+}
+.one{
+   color: #FF5D01;
+   padding:0 1vw;
+}
+.two{
+   color:#60B84B;
+   padding-left: 2vw;
+}
+.three{
+  color: #5076FF;
+  padding:0 1vw;
+}
+.quiz{
+   margin-right: 1.5vw;
+}
+.impression{
+   margin-right: 0.5vw;
+}
+ .box span{
+    font-size: 60px;
+}
+.align{
+    text-align: left;
+}
+
+.trending h1{
+    font-family: poppins;
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 5vh;
+}
+.trending-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    gap: 4vh 2.5vw;
+}
+.trendingquiz-container{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px;
+    width: 180px;
+    height: 70px;
+    padding: 1vh 0.75vw;
+    font-size: 23px;
+    font-family: poppins;
+    font-weight: 600; 
+}
+.trendingquiz-container div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.trendingquiz-container p{
+   font-size: 11px;
+   color: #60B84B;
+   
+}
+.trendingquiz-container span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+    font-size: 16px;
+    color: #FF5D01;
+    margin-left: 3vw;
+}
+.text-wrap{
+    word-wrap: break-word;
+}

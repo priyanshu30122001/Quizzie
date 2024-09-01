@@ -1,0 +1,93 @@
+.Question-analysis{
+    display:flex;
+    flex-direction: row;
+    padding: 0; 
+    font-family: Poppins; 
+}
+.Question-analysis-main{
+    width: 100%;
+    background-color: #EDEDED;
+    display: flex;
+    flex-direction: column; 
+    padding: 5vh 5vw 4vh 5vw ;
+    gap: 8vh;
+}
+.quiz_name{
+    font-size: 40px;
+    font-weight: 600;
+    color: #5076FF;
+}
+.first-row{
+   display: flex;
+   justify-content: space-between;
+}
+.second-row{
+    padding-left: 1vw;
+}
+.question-row{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top:5vh;
+   
+}
+.questions-text{
+    font-size: 30px;    
+    font-weight: 500;
+
+}
+.quiz_impression{
+  color: #FF5D01;
+  font-weight: 600;
+}
+.analytics_boxes{
+    display: flex;
+    gap: 3vw;
+    width: max-content;
+    border-bottom: 3px solid #D7D7D7;
+    padding-bottom: 5vh;
+}
+
+.analytics_boxes div{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 1vh 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #474444;
+}
+.analytics_boxes span{
+    font-size: 30px;
+    font-weight: 600;
+}
+.poll-selectCount{
+    display: flex;
+    gap: 3vw;
+    width: max-content;
+    border-bottom: 3px solid #D7D7D7;
+    padding-bottom: 5vh;   
+}
+.selectedCount {
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 1vh 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #474444;
+    border: none;
+    height: 89px;
+}
+.poll-selectCount span{
+    font-size: 30px;
+    font-weight: 600;
+}

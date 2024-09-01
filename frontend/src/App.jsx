@@ -1,0 +1,34 @@
+import { useState } from 'react'
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import LoginPage from './components/Login/LoginPage';
+import SignupPage from './components/Signup/SignupPage';
+import DashBoard from './components/Dashboard';
+import Analytics from './components/Analytics';
+import './App.css'
+import CreateQuiz from './components/CreateQuiz';
+import Quiz from './pages/Quiz';
+import Questionanalysis from './components/questionAnalysis';
+import UpdateQuiz from "./components/UpdateQuiz"
+import ProtectedRoutes from './utils/ProtectedRoutes';
+
+function App() {
+ 
+
+  return (
+   <BrowserRouter>
+       <Routes>
+         <Route path='/'element={<LoginPage/>} />
+         <Route path='/register'element={<SignupPage/>} />
+         <Route path='/Quiz/:id' element={<Quiz/>}  />
+         <Route path='/dashboard' element={<ProtectedRoutes Component={DashBoard}/>}/> 
+         <Route path='/analytics' element={<ProtectedRoutes Component={Analytics}/>}/>
+         <Route path='/create' element={<ProtectedRoutes Component={CreateQuiz}/>}/>
+         <Route path='/questions/:id' element={<ProtectedRoutes Component={Questionanalysis}/>}/>
+         <Route path='/update/:quizId' element={<ProtectedRoutes Component={UpdateQuiz}/>}/>
+        
+       </Routes>
+   </BrowserRouter>
+  )
+}
+
+export default App

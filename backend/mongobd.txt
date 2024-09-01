@@ -1,0 +1,1 @@
+mongodb+srv://priyanshupadeliya27:core.123456789@user.7bgm6lo.mongodb.net/
