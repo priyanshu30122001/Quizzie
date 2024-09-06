@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import {Navigate, useNavigate} from "react-router-dom";
 
 const ProtectedRoutes =(props)=>{
-    const {Component} = props
+    const { Component } = props
     const navigate = useNavigate()
     useEffect(()=>{
-    let token =localStorage.getItem("token"); 
+    let token = sessionStorage.getItem("token"); 
     if(!token){
        navigate("/login")
     }
