@@ -5,7 +5,7 @@ function Sidebar({button}) {
     const navigate = useNavigate() 
     const logOut=()=>{
       navigate("/login");
-      localStorage.clear();
+      sessionStorage.clear();
     }
    
   return (
