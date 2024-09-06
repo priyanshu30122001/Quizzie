@@ -17,7 +17,7 @@ function Analytics() {
   const [quizes,setquizes]= useState(["No Data"]);
   const [loading,setloading]=useState(true);
   const [confirm,setconfirm]=useState(false);
-  const userId = localStorage.getItem("userId");
+  const userId = sessionStorage.getItem("userId");
   const [deleteId,setdeleteId]=useState("");
   const notify = () => toast.success("Link copied to Clipboard",{autoClose:2000});
   const fetchData =async()=>{
@@ -37,7 +37,7 @@ function Analytics() {
   },[]);
   const handleShare =(id)=>{
    const Link = `https://quizzie-nine-lake.vercel.app/quiz/${id}`;
-   navigator.clipboard.writeText(Link);
+   navigator.clipboard.writeText(Link)
    notify()
   }
   return (
