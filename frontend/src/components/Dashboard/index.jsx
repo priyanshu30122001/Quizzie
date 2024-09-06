@@ -7,25 +7,38 @@ import ClipLoader from "react-spinners/ClipLoader";
 import MoonLoader from "react-spinners/MoonLoader";
 
 function Dashboard() {
-  const [loading,setloading]=useState(true);
-  const [quizes,setquizes]= useState([]);
-  const [Data,setData] = useState({
-    totalQuizes:0,
-    totalQuestions:0,
-    totalImpressions:0
-  });
-  const userId = localStorage.getItem("userId");
-  const fetchDashboardData =async()=>{
-    const data = await dashboarData(userId);
-    const quizData = await trendingQuiz();
-    setquizes(quizData)
-    setData(data)
-    setloading(false)
-  }
-  // setInterval(fetchDashboardData,5000)
-  useEffect(()=>{
-    fetchDashboardData();
-  },[]);
+  const [loading,setLoading] = useState(true);
+  const [quizes,setQuizes] = useState([]);
+  const [Data,setData] = useState();
+
+  const [userId, setUserId] = useState();
+
+  const fetchDashboardData = async () => {
+    if (!userId) return;
+    try {
+      const data = await dashboarData(userId);
+      const quizData = await trendingQuiz();
+      setQuizes(quizData);
+      setData(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching dashboard data:", error);
+    } 
+  };
+  useEffect(() => {
+    const storedUserId = sessionStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+    } else {
+       console.error("No userId found in session storage");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+       fetchDashboardData();
+    }
+ },[userId]);
 
   return (
     <div className='dashboard-main'>
