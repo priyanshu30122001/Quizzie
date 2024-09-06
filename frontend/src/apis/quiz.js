@@ -1,10 +1,13 @@
 import axios from "axios";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-const token = localStorage.getItem('token');
 
 export const dashboarData =async(userId)=>{
     
     try{
+        const token = sessionStorage.getItem("token");
+        if (!token) {
+            throw new Error("No token found. User is not authenticated.");
+          }
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -21,6 +24,10 @@ export const dashboarData =async(userId)=>{
 
 export const trendingQuiz = async()=>{
     try{
+        const token = sessionStorage.getItem("token");
+        if (!token) {
+            throw new Error("No token found. User is not authenticated.");
+          }
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -34,7 +41,9 @@ export const trendingQuiz = async()=>{
         
     }
 }
+
 export const getQuizForAnalysis =async(id)=>{
+    const token = sessionStorage.getItem("token");
     try{
         const config = {
             headers: {
@@ -52,6 +61,7 @@ export const getQuizForAnalysis =async(id)=>{
 }
  
 export const getQuiz =async(id)=>{
+    const token = sessionStorage.getItem("token");
     try{
         const config = {
             headers: {
@@ -66,6 +76,7 @@ export const getQuiz =async(id)=>{
      }
 }
 export const quizForAnalytics = async(user)=>{
+    const token = sessionStorage.getItem("token");
     try{
         const config = {
             headers: {
@@ -83,6 +94,7 @@ export const quizForAnalytics = async(user)=>{
 }
 
 export const deleteQuiz = async(deleteId)=>{
+    const token = sessionStorage.getItem("token");
     try{
         const config = {
             headers: {
@@ -100,6 +112,7 @@ export const deleteQuiz = async(deleteId)=>{
 }
 
 export const makeQuiz = async({name,user,type,questions})=>{
+    const token = sessionStorage.getItem("token");
     try{
         const config = {
             headers: {
@@ -116,6 +129,7 @@ export const makeQuiz = async({name,user,type,questions})=>{
 
 }
 export const updateQuiz = async({name,user,type,questions,},quizId)=>{
+    const token = sessionStorage.getItem("token");
      try{
         const config = {
             headers: {
