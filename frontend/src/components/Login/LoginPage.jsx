@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './login.css'
 import { useNavigate } from "react-router-dom";
 import { loginUser } from '../../apis/login.js';
-import { ToastContainer, toast } from 'react-toastify';
+
 
 function LoginPage() {
 
@@ -26,9 +26,9 @@ const onSubmit=async(e)=>{
   if(response.user){
     setError(false);
     console.log(response);
-    localStorage.setItem("token",response.token);
-    localStorage.setItem("User",response.user);
-    localStorage.setItem("userId",response.userId)
+    sessionStorage.setItem("token", response.token);
+    sessionStorage.setItem("User", response.user);
+    sessionStorage.setItem("userId", response.userId);
     navigate("/")
 
   }
