@@ -20,7 +20,7 @@ router.post('/login',async(req,res,next)=>{
            return res.status(400).json({message:'access denied'});
         }
         else{
-            const token = jwt.sign({userId:user._id},process.env.JWT_SECRET,{ expiresIn: '1h' })
+            const token = jwt.sign({_id:user._id},process.env.JWT_SECRET,{ expiresIn: '1h' })
             res.json({message:"logged in ",user:user.name,token:token,userId:user._id}) 
         }
     }catch(err){
