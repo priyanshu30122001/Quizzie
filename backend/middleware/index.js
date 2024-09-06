@@ -7,6 +7,10 @@ const User = require("../schemas/User.js");
 
 const authMiddleware = async(req,res,next)=>{
     try  {
+        const authHeader = req.header('Authorization');
+        if (!authHeader) {
+          return res.status(401).send("Authorization header missing");
+        }
         const token = req.header('Authorization').split(' ')[1]; 
         if(token){
             const verfied = jwt.verify(token,process.env.JWT_SECRET);
