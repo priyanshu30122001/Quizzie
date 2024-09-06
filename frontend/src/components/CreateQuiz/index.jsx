@@ -16,7 +16,7 @@ function CreateQuiz() {
   const [create,setCreate]= useState(true);
   const navigate=useNavigate() 
   const [quizLink,setLink]=useState(false)
-  const userId = localStorage.getItem("userId");
+   const userId = sessionStorage.getItem("userId");
   const [loading]=useState(false);
   const [currentIndex,setCurrentIndex] = useState(0)
   const[Link,setQuizLink] = useState("")
